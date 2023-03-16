@@ -19,12 +19,30 @@ kind create cluster
 kubectl cluster-info
 ```
 
-## Deploy nginx with 'environment: production' and 'app: nginx' labels
+### Deploy nginx with 'environment: production' and 'app: nginx' labels
 ```bash
 git clone git@github.com:warolv/advanced-k8s.git
 cd labels-selectors
 kubectl apply -f demo1.yaml
 ```
 
+### Select 'production' pods
+```bash
+kubectl get pods -l environment=production
+```
+
+### Select 'nginx' pods
+```bash
+kubectl get pods -l app=nginx
+```
+
+### Select 'nginx' and 'producction' pods
+```bash
+kubectl get pods -l app=nginx,app=nginx
+```
 
 
+### Select not 'production' pods
+```bash
+kubectl get pods -l 'environment,environment notin (production)'
+```
