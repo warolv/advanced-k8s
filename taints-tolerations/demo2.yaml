@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: gpupod
+  labels:
+    env: prod
+spec:
+  containers:
+  - name: ai-handler
+    image: nginx
+    imagePullPolicy: IfNotPresent
+  tolerations:
+  - key: "gpu"
+    operator: "Equal"
+    value: "true"
+    effect: "NoSchedule"

@@ -23,7 +23,7 @@ kubectl cluster-info
 ```bash
 git clone git@github.com:warolv/advanced-k8s.git
 cd labels-selectors
-kubectl apply -f demo1.yaml
+kubectl apply -f demo.yaml
 ```
 
 ### Select 'production' pods
@@ -36,13 +36,13 @@ kubectl get pods -l environment=production
 kubectl get pods -l app=nginx
 ```
 
-### Select 'nginx' and 'producction' pods
+### Select 'nginx' and 'production' pods
 ```bash
 kubectl get pods -l app=nginx,app=nginx
 ```
 
 
-### Select not 'production' pods
+### Select none 'production' pods
 ```bash
 kubectl get pods -l 'environment,environment notin (production)'
 ```
